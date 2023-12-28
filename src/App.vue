@@ -1,47 +1,27 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import {reactive,ref} from "vue"
+const tabs = reactive([
+        { title: "Tab 1" },
+        { title: "Tab 2" },
+        { title: "Tab 3" },
+      ])
+      const tab = ref(null)
+      console.log(tab.value);
+      
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <v-app>
+    <v-app-bar app>
+      <v-tabs v-model="tab" bg-color="primary">
+        <v-tab v-for="(tab, index) in tabs" :key="index">
+          {{ tab.title }}
+        </v-tab>
+      </v-tabs>
+    </v-app-bar>
+  </v-app>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
