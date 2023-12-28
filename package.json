@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "video.js": "^8.6.1",
     "vue": "^3.3.13",
     "vuetify": "^3.4.8"
   },

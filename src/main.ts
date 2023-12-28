@@ -8,7 +8,7 @@ import './assets/main.css'
 
 const vuetify = createVuetify({
   components,
-  directives,
+  directives
 })
 
 createApp(App).use(vuetify).mount('#app')
