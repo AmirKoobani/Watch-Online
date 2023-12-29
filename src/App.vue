@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref, watch } from 'vue'
+import { ref } from 'vue'
 import VideoPlayer from './components/VideoPlayer.vue'
 
 type Tab = {
@@ -31,44 +31,21 @@ const tabs: Tab[] = [
   }
 ]
 
-const currentTab = ref<Tab>(tabs[0])
-
-const videoOptions = ref({
-  autoplay: "muted",
-  controls: true,
-  height: 800,
-  // width: 600,
-  sources: [
-    {
-      src: currentTab.value.link,
-      type: 'application/x-mpegURL'
-    }
-  ]
-})
-
-watch(() => currentTab.value, (newTab) => {
-  videoOptions.value.sources = [
-    {
-      src: newTab.link,
-      type: 'application/x-mpegURL'
-    }
-  ]
-})
-
+const currentTab = ref<Tab>(tabs[3])
 </script>
 
 <template>
   <v-app>
     <v-app-bar color="blue" app>
       <v-tabs v-model="currentTab" grow dir="rtl">
-        <v-tab v-for="(tab) in tabs" :key="tab.id" :value="tab">
+        <v-tab v-for="tab in tabs" :key="tab.id" :value="tab">
           {{ tab.title }}
         </v-tab>
       </v-tabs>
     </v-app-bar>
     <v-main>
       <v-container>
-        <VideoPlayer :options="videoOptions" />
+        <VideoPlayer :video-link="currentTab.link" />
       </v-container>
     </v-main>
   </v-app>
