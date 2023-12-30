@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import videojs from 'video.js'
+import Player from "video.js/dist/types/player"
 import 'video.js/dist/video-js.css'
 
 const props = defineProps<{
   videoLink: string
 }>()
 
-const videoPlayer = ref<any>(null as any)
+const videoPlayer = ref<Player | null>(null)
 
 onMounted(() => {
   videoPlayer.value = videojs("videoPlayerId", {
