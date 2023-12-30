@@ -7,11 +7,10 @@ const props = defineProps<{
   videoLink: string
 }>()
 
-const player = ref<any>(null as any)
 const videoPlayer = ref<any>(null as any)
 
 onMounted(() => {
-  player.value = videojs(videoPlayer.value, {
+  videoPlayer.value = videojs(videoPlayer.value, {
     autoplay: 'muted',
     controls: true,
     fluid: true,
@@ -25,8 +24,8 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  if (player.value) {
-    player.value.dispose()
+  if (videoPlayer.value) {
+    videoPlayer.value.dispose()
   }
 })
 
