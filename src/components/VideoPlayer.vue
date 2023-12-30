@@ -10,7 +10,7 @@ const props = defineProps<{
 const videoPlayer = ref<any>(null as any)
 
 onMounted(() => {
-  videoPlayer.value = videojs(videoPlayer.value, {
+  videoPlayer.value = videojs("videoPlayerId", {
     autoplay: 'muted',
     controls: true,
     fluid: true,
@@ -30,13 +30,14 @@ onBeforeUnmount(() => {
 })
 
 watch(() => props.videoLink, (newVideoLink) => {
-  const currentPlayer = videojs.getPlayer("vjs_video_3")
+  const currentPlayer = videojs.getPlayer("videoPlayerId")
+
   currentPlayer.src({ src: newVideoLink, type: 'application/x-mpegURL' })
 })
 </script>
 
 <template>
-  <video ref="videoPlayer" class="video-js"></video>
+  <video id="videoPlayerId" ref="videoPlayer" class="video-js"></video>
 </template>
 
 <style scoped>
