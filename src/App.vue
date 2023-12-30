@@ -17,7 +17,7 @@ const tabs: Tab[] = [
   {
     id: 2,
     title: 'ערוץ 12',
-    link: 'https://mako-streaming.akamaized.net/direct/hls/live/2033791/k12dvr/index.m3u8?hdnea=st%3D1703756539%7Eexp%3D1703757439%7Eacl%3D%2F*%7Ehmac%3D59fa4d2f5b9f7be40ee812f42360d7ca036bc190f75f8f7ad5fb441a0a4101be'
+    link: 'https://mako-streaming.akamaized.net/direct/hls/live/2033791/k12dvr/index.m3u8?hdnea=st%3D1703963313%7Eexp%3D1703964213%7Eacl%3D%2F*%7Ehmac%3Def80013d91a11eb45c72d1bb107feec18d601ba78745bc4dc77396cb59dd7a14'
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const tabs: Tab[] = [
   }
 ]
 
-const currentTab = ref<Tab>(tabs[3])
+const currentTab = ref<Tab>(tabs[0])
 </script>
 
 <template>

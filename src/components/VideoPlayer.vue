@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 
-const { videoLink } = defineProps<{
+const props = defineProps<{
   videoLink: string
 }>()
 
+const player = ref<any>(null as any)
 const videoPlayer = ref<any>(null as any)
 
 onMounted(() => {
-  videoPlayer.value = videojs(videoPlayer.value, {
+  player.value = videojs(videoPlayer.value, {
     autoplay: 'muted',
     controls: true,
-    height: 800,
-    // width: 600,
+    fluid: true,
     sources: [
       {
-        src: videoLink,
+        src: props.videoLink,
         type: 'application/x-mpegURL'
       }
     ]
@@ -25,17 +25,19 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  if (videoPlayer.value) {
-    videoPlayer.value.dispose()
+  if (player.value) {
+    player.value.dispose()
   }
+})
+
+watch(() => props.videoLink, (newVideoLink) => {
+  const currentPlayer = videojs.getPlayer("vjs_video_3")
+  currentPlayer.src({ src: newVideoLink, type: 'application/x-mpegURL' })
 })
 </script>
 
 <template>
-  <div>
-    {{ videoLink }}
-    <video ref="videoPlayer" class="video-js"></video>
-  </div>
+  <video ref="videoPlayer" class="video-js"></video>
 </template>
 
 <style scoped>
