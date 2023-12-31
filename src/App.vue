@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import axios from 'axios'
-import VideoPlayer from './components/VideoPlayer.vue'
+import VideoPlayer from './components/VideoPlayer/VideoPlayer.vue'
 
 type Tab = {
   title: string
@@ -38,6 +38,14 @@ const tabs = ref<Tab[]>([
   {
     title: 'ערוץ 9',
     link: 'https://contactgbs.mmdlive.lldns.net/contactgbs/dd4f5f04932345f1b47c4bfb45fbd682/chunklist_b1128000.m3u8'
+  },
+  {
+    title: 'ערוץ הכנסת',
+    link: 'https://contact.gostreaming.tv/Knesset/myStream/chunklist_w882959991.m3u8'
+  },
+  {
+    title: 'ערוץ הקניות',
+    link: 'https://shoppingil-rewriter.vidnt.com/video_10801920_p_0.m3u8'
   }
 ])
 
