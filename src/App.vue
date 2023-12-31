@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import axios from "axios"
+import axios from 'axios'
 import VideoPlayer from './components/VideoPlayer.vue'
 
 type Tab = {
@@ -38,18 +38,20 @@ const currentTab = ref<Tab>(tabs.value[0])
 
 const updateTicket = async () => {
   try {
-    const { data } = await axios.get("https://mass.mako.co.il/ClicksStatistics/entitlementsServicesV2.jsp?et=ngt&lp=/direct/hls/live/2033791/k12dvr/index.m3u8?b-in-range=800-2700&rv=AKAMAI")
+    const { data } = await axios.get(
+      'https://mass.mako.co.il/ClicksStatistics/entitlementsServicesV2.jsp?et=ngt&lp=/direct/hls/live/2033791/k12dvr/index.m3u8?b-in-range=800-2700&rv=AKAMAI'
+    )
     const ticket = data.tickets[0].ticket
     tabs.value[1].link = `https://mako-streaming.akamaized.net/direct/hls/live/2033791/k12dvr/index.m3u8?${ticket}`
   } catch (error) {
-    console.error('Error fetching ticket:', error);
+    console.error('Error fetching ticket:', error)
   }
 }
 
 onMounted(async () => {
   updateTicket()
-  updateTicketId.value = setInterval(updateTicket, 5 * 60 * 1000);
-});
+  updateTicketId.value = setInterval(updateTicket, 5 * 60 * 1000)
+})
 
 onBeforeUnmount(() => {
   clearInterval(updateTicketId.value)
