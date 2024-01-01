@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import ChannelsTabs from './components/ChannelsTabs.vue'
+import DarkModeToggle from './components/DarkModeToggle.vue'
 import VideoPlayer from './components/VideoPlayer/VideoPlayer.vue'
 
 const currentChannel = ref<Channel>({
@@ -15,11 +16,12 @@ const handleChannelChange = (selectedChannel: Channel) => {
 
 <template>
   <v-app>
-    <v-app-bar color="blue" app>
+    <v-app-bar app>
       <ChannelsTabs @channel-change="handleChannelChange" />
     </v-app-bar>
     <v-main>
       <v-container>
+        <DarkModeToggle />
         <VideoPlayer :video-link="currentChannel.link" />
       </v-container>
     </v-main>

@@ -8,7 +8,10 @@ import './assets/main.css'
 
 const vuetify = createVuetify({
   components,
-  directives
+  directives,
+  theme: {
+    defaultTheme: 'dark',
+  }
 })
 
 createApp(App).use(vuetify).mount('#app')
