@@ -1,4 +1,4 @@
-type ChannelTab = {
+type Channel = {
   title: string
   link: string
 }
