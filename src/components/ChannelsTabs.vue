@@ -2,16 +2,20 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import axios from 'axios'
 
-const updateTicketId = ref(0)
+const emit = defineEmits<{
+  (event: 'channelChange', selectedChannel: Channel): void
+}>()
 
-const channelsTabs = ref<ChannelTab[]>([
+const updateTokenIntervalId = ref(0)
+
+const channels = ref<Channel[]>([
   {
     title: 'ערוץ 11',
     link: 'https://kan11w.media.kan.org.il/hls/live/2105694/2105694/source1_4k/chunklist.m3u8'
   },
   {
     title: 'ערוץ 12',
-    link: ''
+    link: 'https://mako-streaming.akamaized.net/direct/hls/live/2033791/k12dvr/index.m3u8'
   },
   {
     title: 'ערוץ 13',
@@ -43,34 +47,39 @@ const channelsTabs = ref<ChannelTab[]>([
   }
 ])
 
-const currentChannelTab = ref<ChannelTab>(channelsTabs.value[0])
+const currentChannel = ref<Channel>(channels.value[0])
 
-const updateTicket = async () => {
+const updateToken = async () => {
   try {
     const { data } = await axios.get(
       'https://mass.mako.co.il/ClicksStatistics/entitlementsServicesV2.jsp?et=ngt&lp=/direct/hls/live/2033791/k12dvr/index.m3u8?b-in-range=800-2700&rv=AKAMAI'
     )
-    const ticket = data.tickets[0].ticket
-    channelsTabs.value[1].link = `https://mako-streaming.akamaized.net/direct/hls/live/2033791/k12dvr/index.m3u8?${ticket}`
+    const token = data.tickets[0].ticket
+    channels.value[1].link = `https://mako-streaming.akamaized.net/direct/hls/live/2033791/k12dvr/index.m3u8?${token}`
   } catch (error) {
-    console.error('Error fetching ticket:', error)
+    console.error('Error fetching token:', error)
   }
 }
 
+const emitChannelChange = (selectedChannel: Channel) => {
+  emit('channelChange', selectedChannel);
+}
+
 onMounted(async () => {
-  updateTicket()
-  updateTicketId.value = setInterval(updateTicket, 5 * 60 * 1000)
+  updateToken()
+  updateTokenIntervalId.value = setInterval(updateToken, 5 * 60 * 1000)
 })
 
 onBeforeUnmount(() => {
-  clearInterval(updateTicketId.value)
+  clearInterval(updateTokenIntervalId.value)
 })
 </script>
 
 <template>
-  <v-tabs v-model="currentChannelTab" align-tabs="center" center-active grow dir="rtl">
-    <v-tab v-for="channelTab in channelsTabs" :key="channelTab.title" :value="channelTab">
-      {{ channelTab.title }}
+  <v-tabs v-model="currentChannel" align-tabs="center" center-active grow dir="rtl">
+    <v-tab v-for="channel in channels" :key="channel.title" :value="channel"
+      @click="emitChannelChange(channel)">
+      {{ channel.title }}
     </v-tab>
   </v-tabs>
 </template>
