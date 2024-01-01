@@ -62,7 +62,7 @@ const updateToken = async () => {
 }
 
 const emitChannelChange = (selectedChannel: Channel) => {
-  emit('channelChange', selectedChannel);
+  emit('channelChange', selectedChannel)
 }
 
 onMounted(async () => {
@@ -77,8 +77,12 @@ onBeforeUnmount(() => {
 
 <template>
   <v-tabs v-model="currentChannel" align-tabs="center" center-active grow dir="rtl">
-    <v-tab v-for="channel in channels" :key="channel.title" :value="channel"
-      @click="emitChannelChange(channel)">
+    <v-tab
+      v-for="channel in channels"
+      :key="channel.title"
+      :value="channel"
+      @click="emitChannelChange(channel)"
+    >
       {{ channel.title }}
     </v-tab>
   </v-tabs>
