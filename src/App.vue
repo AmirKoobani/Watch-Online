@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ChannelsTabs from './components/ChannelsTabs/ChannelsTabs.vue'
-import DarkModeToggle from './components/DarkModeToggle.vue'
-import VideoPlayer from './components/VideoPlayer/VideoPlayer.vue'
-import channelsList from './components/ChannelsTabs/channels.json'
+import { ChannelsTabs, DarkModeToggle, VideoPlayer } from './components';
+import channelsList from './components/ChannelsTabs/channels.json';
 
 const currentChannel = ref<Channel>(channelsList[0])
 
