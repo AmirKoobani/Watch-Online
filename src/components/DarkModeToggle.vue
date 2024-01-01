@@ -9,7 +9,14 @@ const toggleTheme = () => {
 </script>
 
 <template>
-  <v-btn @click="toggleTheme">toggle theme</v-btn>
+  <v-btn icon size="large" :elevation="0" @click="toggleTheme">
+    <span v-if="theme.global.current.value.dark" class="icon">🌞</span>
+    <span v-else class="icon">🌛</span>
+  </v-btn>
 </template>
 
-<style scoped></style>
+<style scoped>
+.icon {
+  font-size: 2em;
+}
+</style>
