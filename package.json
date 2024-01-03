@@ -15,6 +15,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "axios": "^1.6.3",
     "gh-pages": "^6.1.1",
     "video.js": "^8.6.1",
