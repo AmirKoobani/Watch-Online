@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import axios from 'axios'
-import channelsList from './channels.json'
+
+const props = defineProps<{
+  channels: Channel[]
+  currentChannel: Channel
+}>()
 
 const emit = defineEmits<{
   (event: 'channelChange', selectedChannel: Channel): void
@@ -9,9 +13,8 @@ const emit = defineEmits<{
 
 const updateTokenIntervalId = ref(0)
 
-const channels = ref<Channel[]>(channelsList)
-
-const currentChannel = ref<Channel>(channels.value.slice(-1)[0])
+const channels = ref(props.channels)
+const currentChannel = ref(props.currentChannel)
 
 const updateToken = async () => {
   try {
@@ -48,6 +51,7 @@ onBeforeUnmount(() => {
       v-for="channel in channels"
       :key="channel.title"
       :value="channel"
+      dir="rtl"
       @click="emitChannelChange(channel)"
     >
       {{ channel.title }}

@@ -13,7 +13,11 @@ const handleChannelChange = (selectedChannel: Channel) => {
 <template>
   <v-app>
     <v-app-bar app>
-      <ChannelsTabs @channel-change="handleChannelChange" />
+      <ChannelsTabs
+        :channels="channels"
+        :current-channel="currentChannel"
+        @channel-change="handleChannelChange"
+      />
     </v-app-bar>
     <v-main>
       <DarkModeToggle />
