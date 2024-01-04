@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import videojs from 'video.js'
-import Player from 'video.js/dist/types/player'
+import type Player from 'video.js/dist/types/player'
 import hebrew from './videoJSHeDictionary.json'
 import 'video.js/dist/video-js.css'
 
