@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "axios": "^1.6.3",
-    "video.js": "^8.6.1",
-    "vue": "^3.4.3",
+    "axios": "^1.6.4",
+    "video.js": "^8.9.0",
+    "vue": "^3.4.5",
     "vuetify": "^3.4.9"
   },
   "devDependencies": {
