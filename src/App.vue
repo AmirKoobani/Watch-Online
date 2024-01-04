@@ -22,6 +22,7 @@ const handleChannelChange = (selectedChannel: Channel) => {
 <template>
   <v-app>
     <v-app-bar app>
+      <DarkModeToggle />
       <ChannelsTabs
         :channels="channels"
         :current-channel="currentChannel"
@@ -29,7 +30,6 @@ const handleChannelChange = (selectedChannel: Channel) => {
       />
     </v-app-bar>
     <v-main>
-      <DarkModeToggle />
       <v-container>
         <VideoPlayer :video-link="currentChannel.link" />
       </v-container>
