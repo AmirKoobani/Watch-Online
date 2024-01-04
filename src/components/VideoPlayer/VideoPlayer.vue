@@ -5,6 +5,7 @@ import Player from 'video.js/dist/types/player'
 import hebrew from './videoJSHeDictionary.json'
 import 'video.js/dist/video-js.css'
 
+videojs.log.level('off')
 videojs.addLanguage('he', hebrew)
 
 const props = defineProps<{

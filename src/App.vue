@@ -1,7 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { ChannelsTabs, DarkModeToggle, VideoPlayer } from './components'
+import { defineAsyncComponent, ref } from 'vue'
 import channels from './components/ChannelsTabs/channels.json'
+
+const ChannelsTabs = defineAsyncComponent(() =>
+  import('./components').then(({ ChannelsTabs }) => ChannelsTabs)
+)
+const DarkModeToggle = defineAsyncComponent(() =>
+  import('./components').then(({ DarkModeToggle }) => DarkModeToggle)
+)
+const VideoPlayer = defineAsyncComponent(() =>
+  import('./components').then(({ VideoPlayer }) => VideoPlayer)
+)
 
 const currentChannel = ref<Channel>(channels.slice(-1)[0])
 
