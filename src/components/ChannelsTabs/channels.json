@@ -53,7 +53,7 @@
   },
   {
     "title": "CNBC News",
-    "link": "https://rtmp3.livenewsof.com/auth/0w7nmLBt6L59UE5LPlSIQrEyAkyz6JK2q2Bm5iKC-_xlvDDFLB10Fw7DDByPUHTcmsOiGumJd34N1Je5MDOCKLbf7l4F_OVCxJyG6kHBTq4_xtljy62D7eMJ8QYg_5xyE2iWpIOqdQK3cg0b2r2nm6pBPYN7vgGPULvH57CwBEB6uL1NOola2Pn8KNhChL3Esm7vDDIPsFTNM--YjA2FKkEfb6gnYbHM-XeVRsFHPRuZt9qGAND-MNZLD7QVQfvT2GvSu6l4G__x8fksRDz-EKKbfj8RDAcMziUgdUzTdEXdwDF0YDmM9UlWWOEMtquC9VxeemDJd2YNUezRhk0ioetYbMoUui7U9sphHuanAaYqe1wZngAK0ezlhN_wezSBHRkV6SM2RL4zfxMKLctVivRfdPn35KRw0JWd3Z1yvSEJvIFrPmFgXshsWs9IkDQ0UPNiGlo7gmyhFzwspu3qR5k2dg5DcgSuPbVSMEn1NfB4HWE3NTzH3pfwGsL01MpG_3NZf9RNFbRfonyAC-O_GkCBUQ7nw2XXEsMFi7XHTBsKu-1ABmi0T4H1_EA_jjpAynRqsWGzaJ39mDnzipKD7xEq6w_rkovlieGOMeRcvoM"
+    "link": "https://1915617474.rsc.cdn77.org/J92Ka98oDYF57WwPYGqbiQ==,1705007166/1915617474/index.m3u8"
   },
   {
     "title": "כאן 11 עם כתוביות",
@@ -89,7 +89,7 @@
   },
   {
     "title": "ערוץ 14",
-    "link": "https://now14.g-mana.live/media/91517161-44ab-4e46-af70-e9fe26117d2e/mainManifest.m3u8"
+    "link": "https://ch14-channel14-content.akamaized.net/hls/live/2104807/CH14_CHANNEL14/master.m3u8"
   },
   {
     "title": "ערוץ 13",
@@ -102,5 +102,9 @@
   {
     "title": "כאן 11",
     "link": "https://kan11w.media.kan.org.il/hls/live/2105694/2105694/source1_4k/chunklist.m3u8"
+  },
+  {
+    "title": "i24 news",
+    "link": "https://bcovlive-a.akamaihd.net/d89ede8094c741b7924120b27764153c/eu-central-1/5377161796001/profile_0/chunklist.m3u8"
   }
 ]
