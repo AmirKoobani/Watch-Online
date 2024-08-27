@@ -39,7 +39,7 @@ watch(
   (newVideoLink) => {
     const currentPlayer = videojs.getPlayer('videoPlayerId')
 
-    currentPlayer.src({ src: newVideoLink, type: 'application/x-mpegURL' })
+    currentPlayer?.src({ src: newVideoLink, type: 'application/x-mpegURL' })
   }
 )
 </script>
