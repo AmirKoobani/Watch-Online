@@ -22,10 +22,10 @@ const updateToken = async () => {
       'https://mass.mako.co.il/ClicksStatistics/entitlementsServicesV2.jsp?et=ngt&lp=/direct/hls/live/2033791/k12dvr/index.m3u8?b-in-range=800-2700&rv=AKAMAI'
     )
     const token = data.tickets[0].ticket
-    const originalUrl = channels.value.slice(-2)[0].link
+    const originalUrl = channels.value.slice(-3)[0].link
     const baseUrl = originalUrl.split('?')[0]
 
-    channels.value.slice(-2)[0].link = `${baseUrl}?${token}`
+    channels.value.slice(-3)[0].link = `${baseUrl}?${token}`
   } catch (error) {
     console.error('Error fetching token:', error)
   }
